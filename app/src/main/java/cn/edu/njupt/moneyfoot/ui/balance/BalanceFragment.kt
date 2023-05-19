@@ -23,7 +23,7 @@ class BalanceFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View {
         val balanceViewModel =
-                ViewModelProvider(this).get(BalanceViewModel::class.java)
+            ViewModelProvider(this)[BalanceViewModel::class.java]
 
         _binding = FragmentBalanceBinding.inflate(inflater, container, false)
         val root: View = binding.root

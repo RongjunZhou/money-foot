@@ -3,7 +3,6 @@ package cn.edu.njupt.moneyfoot
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import cn.edu.njupt.moneyfoot.database.BillDatabase
 import cn.edu.njupt.moneyfoot.databinding.ActivityBillBinding
 
 class BillActivity : AppCompatActivity() {
@@ -29,8 +28,6 @@ class BillActivity : AppCompatActivity() {
         }
 
     }
-
-    private val billDatabase : BillDatabase = BillDatabase.getDatabase(context = this)
 
 
 }
