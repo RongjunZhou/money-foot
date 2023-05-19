@@ -3,13 +3,14 @@ package cn.edu.njupt.moneyfoot
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import cn.edu.njupt.moneyfoot.database.BillDatabase
 import cn.edu.njupt.moneyfoot.databinding.ActivityBillBinding
 
 class BillActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityBillBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) : Unit {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityBillBinding.inflate(layoutInflater)
@@ -28,5 +29,8 @@ class BillActivity : AppCompatActivity() {
         }
 
     }
+
+    private val billDatabase : BillDatabase = BillDatabase.getDatabase(context = this)
+
 
 }
