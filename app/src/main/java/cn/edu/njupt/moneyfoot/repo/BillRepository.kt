@@ -8,7 +8,7 @@ import cn.edu.njupt.moneyfoot.entity.Bill
 
 object BillRepository {
     private var instance: BillDatabase? = null
-    // 使用单例模式
+
     @Synchronized
     fun getDatabase(context: Context): BillDatabase {
         instance?.let {
@@ -21,4 +21,9 @@ object BillRepository {
     }
 
     fun getAll() : LiveData<List<Bill>> = instance!!.billDao().getAll()
+    //fun getAll(date : Date) : LiveData<List<Bill>> = instance!!.billDao().getAllOfMonth(date)
+
+
+
+
 }
