@@ -6,9 +6,10 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Bill (
-    @PrimaryKey var id : Int,
-    @ColumnInfo(name = "amount") val amount : Int,
-    @ColumnInfo(name = "tag") val tag : Int,
-    @ColumnInfo(name = "date") val date : Long,
+    @PrimaryKey(autoGenerate = true) var id : Int?,
+    @ColumnInfo(name = "amount") val amount : String,
+    @ColumnInfo(name = "tag") val tag : String,
+    @ColumnInfo(name = "access") val access : String,
+    @ColumnInfo(name = "time") val time : Long,
     @ColumnInfo(name = "comment") val comment : String?
 )

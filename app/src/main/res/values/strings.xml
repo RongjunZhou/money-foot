@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MoneyFoot</string>
+    <string name="app_name">钱途</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">钱途</string>
@@ -9,5 +9,5 @@
 
     <string name="menu_home">收支记录</string>
     <string name="menu_gallery">本月统计</string>
-    <string name="menu_balance">收支平衡</string>
+    <string name="menu_balance">关于我们</string>
 </resources>

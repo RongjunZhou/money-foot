@@ -6,6 +6,10 @@ import androidx.room.Room
 import cn.edu.njupt.moneyfoot.database.BillDatabase
 import cn.edu.njupt.moneyfoot.entity.Bill
 
+/**
+ * 为了好调用一点，拿单例写了
+ * 有性能损失，不建议大数量查询使用
+ */
 object BillRepository {
     private var instance: BillDatabase? = null
 
@@ -21,9 +25,7 @@ object BillRepository {
     }
 
     fun getAll() : LiveData<List<Bill>> = instance!!.billDao().getAll()
-    //fun getAll(date : Date) : LiveData<List<Bill>> = instance!!.billDao().getAllOfMonth(date)
-
-
+    fun insert(bill: Bill) = instance!!.billDao().insertBill(bill)
 
 
 }
