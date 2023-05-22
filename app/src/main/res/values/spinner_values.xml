@@ -16,4 +16,9 @@
         <item>闲置交易</item>
         <item>其他收入</item>
     </string-array>
+
+    <string-array name="type">
+        <item>收入</item>
+        <item>支出</item>
+    </string-array>
 </resources>
