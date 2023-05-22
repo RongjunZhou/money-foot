@@ -44,14 +44,14 @@ class BillActivity : AppCompatActivity() {
                 val time = LocalDate.now().atTime(timePicker.hour, timePicker.minute)
                     .atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
                 val bill = Bill(null, amount, type, access, time, comment)
-                BillRepository.getDatabase(applicationContext).billDao().insertBill(bill)
+                BillRepository.insert(bill)
             }
-            onBackPressed()
+            onBackPressedDispatcher
             finish()
         }
 
         binding.appBarBill.toolbar.setNavigationOnClickListener{
-            onBackPressed()
+            onBackPressedDispatcher
             finish()
         }
 
