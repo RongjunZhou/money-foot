@@ -10,7 +10,7 @@ import java.util.Date
 object BillDOAdapter {
 
     @SuppressLint("SimpleDateFormat")
-    fun Bill2BillDO(bill: Bill): BillDO{
+    fun bill2BillDO(bill: Bill): BillDO{
         val amount: BigDecimal = bill.amount.toBigDecimal()
         val tag: Boolean = when(bill.tag){
             "收入"->{

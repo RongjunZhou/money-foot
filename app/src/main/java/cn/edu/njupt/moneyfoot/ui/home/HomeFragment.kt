@@ -31,7 +31,7 @@ class HomeFragment : Fragment() {
 
         val textView: TextView = binding.textHome
         homeViewModel.bill.observe(viewLifecycleOwner) {
-            textView.text = it.stream().map { o ->BillDOAdapter.Bill2BillDO(o) }.toList().toString()
+            textView.text = it.stream().map { o ->BillDOAdapter.bill2BillDO(o) }.toList().toString()
         }
         return root
     }
