@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import cn.edu.njupt.moneyfoot.databinding.FragmentBalanceBinding
@@ -27,12 +26,7 @@ class BalanceFragment : Fragment() {
 
         _binding = FragmentBalanceBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        val textView: TextView = binding.textSlideshow
-        balanceViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+               return root
     }
 
     override fun onDestroyView() {

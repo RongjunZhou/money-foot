@@ -9,5 +9,5 @@
 
     <string name="menu_home">收支记录</string>
     <string name="menu_gallery">本月统计</string>
-    <string name="menu_balance">收支平衡</string>
+    <string name="menu_balance">关于我们</string>
 </resources>
