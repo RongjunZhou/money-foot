@@ -36,14 +36,14 @@ class BillActivity : AppCompatActivity() {
                 Toast.makeText(this ,"金额不能为空",Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
-            val type = binding.appBarBill.content.typeSpinner.selectedItem.toString()
-            val access = binding.appBarBill.content.accessSpinner.selectedItem.toString()
-            val comment = binding.appBarBill.content.comment.text.toString()
-            val timePicker = binding.appBarBill.content.editTextTime
-            val time = LocalDate.now().atTime(timePicker.hour, timePicker.minute)
-                .atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
-            val bill = Bill(null, amount, type, access, time, comment)
             scope.launch {
+                val type = binding.appBarBill.content.typeSpinner.selectedItem.toString()
+                val access = binding.appBarBill.content.accessSpinner.selectedItem.toString()
+                val comment = binding.appBarBill.content.comment.text.toString()
+                val timePicker = binding.appBarBill.content.editTextTime
+                val time = LocalDate.now().atTime(timePicker.hour, timePicker.minute)
+                    .atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
+                val bill = Bill(null, amount, type, access, time, comment)
                 BillRepository.getDatabase(applicationContext).billDao().insertBill(bill)
             }
             onBackPressed()
