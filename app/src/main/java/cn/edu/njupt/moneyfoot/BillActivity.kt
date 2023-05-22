@@ -4,8 +4,16 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import cn.edu.njupt.moneyfoot.databinding.ActivityBillBinding
+import cn.edu.njupt.moneyfoot.entity.Bill
+import cn.edu.njupt.moneyfoot.repo.BillRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import java.time.LocalDate
+import java.time.ZoneId
 
 class BillActivity : AppCompatActivity() {
 
@@ -14,6 +22,8 @@ class BillActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val scope = CoroutineScope(Dispatchers.Default)
+
 
         binding = ActivityBillBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -21,12 +31,28 @@ class BillActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarBill.toolbar)
 
         binding.appBarBill.fab.setOnClickListener{
+            val amount = binding.appBarBill.content.decimal.text.toString()
+            if(amount.isEmpty()){
+                Toast.makeText(this ,"金额不能为空",Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+            val type = binding.appBarBill.content.typeSpinner.selectedItem.toString()
+            val access = binding.appBarBill.content.accessSpinner.selectedItem.toString()
+            val comment = binding.appBarBill.content.comment.text.toString()
+            val timePicker = binding.appBarBill.content.editTextTime
+            val time = LocalDate.now().atTime(timePicker.hour, timePicker.minute)
+                .atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
+            val bill = Bill(null, amount, type, access, time, comment)
+            scope.launch {
+                BillRepository.getDatabase(applicationContext).billDao().insertBill(bill)
+            }
             onBackPressed()
             finish()
         }
 
         binding.appBarBill.toolbar.setNavigationOnClickListener{
             onBackPressed()
+            finish()
         }
 
         val typeSpinner = binding.appBarBill.content.typeSpinner

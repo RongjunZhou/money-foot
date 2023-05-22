@@ -23,7 +23,7 @@ object BillRepository {
     fun getAll() : LiveData<List<Bill>> = instance!!.billDao().getAll()
     //fun getAll(date : Date) : LiveData<List<Bill>> = instance!!.billDao().getAllOfMonth(date)
 
-
+    fun insert(bill: Bill) = instance!!.billDao().insertBill(bill)
 
 
 }
