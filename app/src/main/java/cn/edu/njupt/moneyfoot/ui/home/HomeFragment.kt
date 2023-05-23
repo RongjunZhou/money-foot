@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import cn.edu.njupt.moneyfoot.adapter.BillDOAdapter
 import cn.edu.njupt.moneyfoot.databinding.FragmentHomeBinding
+import kotlin.streams.toList
 
 class HomeFragment : Fragment() {
 
@@ -29,7 +31,7 @@ class HomeFragment : Fragment() {
 
         val textView: TextView = binding.textHome
         homeViewModel.bill.observe(viewLifecycleOwner) {
-            textView.text = it.toString()
+            textView.text = it.stream().map { o ->BillDOAdapter.Bill2BillDO(o) }.toList().toString()
         }
         return root
     }

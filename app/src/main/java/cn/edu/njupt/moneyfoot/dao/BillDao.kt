@@ -16,5 +16,5 @@ interface BillDao {
     @Insert
     fun insertBill(vararg bills: Bill)
     @Delete
-    fun deleteBill(vararg bills: Bill)
+    suspend fun deleteBill(vararg bills: Bill)
 }
