@@ -39,18 +39,29 @@ class GalleryFragment : Fragment() {
                     else -> outcome = outcome.add(o.amount)
                 }
             }}
+
             if(income.add(outcome).equals(0)){
                 binding.progressBar.progress = 100
             }else{
                 binding.progressBar.progress = (income.toDouble()/(outcome.toDouble() + income.toDouble()) * 100).toInt()
                 if (income.toDouble() > outcome.toDouble()){
                     binding.amount.setTextColor(Color.BLUE)
-                }else if(income.toDouble() > outcome.toDouble()){
+                }else if(income.toDouble() < outcome.toDouble()){
                     binding.amount.setTextColor(Color.RED)
+                }else{
+                    binding.amount.setTextColor(Color.BLACK)
                 }
             }
 
-            binding.amount.text = income.toEngineeringString() + "/" + outcome.toEngineeringString()
+            var textSize = 36
+            val amountText = income.toEngineeringString() + "/" + outcome.toEngineeringString()
+            while(binding.amount.paint.measureText(amountText) > 190 && textSize > 0){
+                textSize -= 1
+                binding.amount.paint.textSize = textSize.toFloat()
+            }
+
+            binding.amount.textSize = textSize.toFloat()
+            binding.amount.text = amountText
         }
         return root
     }
