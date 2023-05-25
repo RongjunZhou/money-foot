@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.Room
 import cn.edu.njupt.moneyfoot.database.BillDatabase
 import cn.edu.njupt.moneyfoot.entity.Bill
+import java.util.Date
 
 /**
  * 为了好调用一点，拿单例写了
@@ -26,6 +27,13 @@ object BillRepository {
 
     fun getAll() : LiveData<List<Bill>> = instance!!.billDao().getAll()
     fun insert(bill: Bill) = instance!!.billDao().insertBill(bill)
+    fun getBillsByDateAndAccess(startDate: Date, endStart: Date, access: String?): LiveData<List<Bill>>{
+        if(access == null){
+            return instance!!.billDao().getBillsByTime(startDate.time, endStart.time)
+        }
+        return instance!!.billDao().getBillsByTimeAndAccess(startDate.time, endStart.time, access)
+    }
+
 
 
 }

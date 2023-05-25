@@ -11,10 +11,12 @@ import cn.edu.njupt.moneyfoot.entity.Bill
 interface BillDao {
     @Query("SELECT * FROM bill")
     fun getAll() : LiveData<List<Bill>>
-//    @Query("SELECT * FROM bill WHERE date >= :date")
-//    fun getAllOfMonth( date: Date) : LiveData<List<Bill>>
     @Insert
     fun insertBill(vararg bills: Bill)
     @Delete
     suspend fun deleteBill(vararg bills: Bill)
+    @Query("SELECT * FROM bill WHERE time >= :startTime AND time <= :endTime AND access = :access")
+    fun getBillsByTimeAndAccess(startTime: Long, endTime: Long, access: String): LiveData<List<Bill>>
+    @Query("SELECT * FROM bill WHERE time >= :startTime AND time <= :endTime")
+    fun getBillsByTime(startTime: Long, endTime: Long): LiveData<List<Bill>>
 }
