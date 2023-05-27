@@ -17,6 +17,6 @@ interface BillDao {
     suspend fun deleteBill(vararg bills: Bill)
     @Query("SELECT * FROM bill WHERE time >= :startTime AND time <= :endTime AND access = :access")
     fun getBillsByTimeAndAccess(startTime: Long, endTime: Long, access: String): LiveData<List<Bill>>
-    @Query("SELECT * FROM bill WHERE time >= :startTime AND time <= :endTime")
+    @Query("SELECT * FROM bill WHERE time >= :startTime AND time <= :endTime ORDER BY time DESC")
     fun getBillsByTime(startTime: Long, endTime: Long): LiveData<List<Bill>>
 }
