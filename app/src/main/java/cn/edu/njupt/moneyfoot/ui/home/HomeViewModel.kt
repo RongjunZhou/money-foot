@@ -1,22 +1,21 @@
 package cn.edu.njupt.moneyfoot.ui.home
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import cn.edu.njupt.moneyfoot.dao.BillDao
+import androidx.lifecycle.viewModelScope
 import cn.edu.njupt.moneyfoot.entity.Bill
 import cn.edu.njupt.moneyfoot.repo.BillRepository
+import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
 
-    private lateinit var billDao : BillDao
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Page"
+    private lateinit var _bill: LiveData<List<Bill>>
+    init {
+        viewModelScope.launch {
+            _bill = BillRepository.getAll()
+        }
     }
-    val text : LiveData<String> = _text
 
-    val bill : LiveData<List<Bill>> = BillRepository.getAll()
-
-
+    val bill = _bill
 
 }
