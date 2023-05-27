@@ -12,7 +12,7 @@ interface BillDao {
     @Query("SELECT * FROM bill")
     fun getAll() : LiveData<List<Bill>>
     @Insert
-    fun insertBill(vararg bills: Bill)
+    suspend fun insertBill(vararg bills: Bill)
     @Delete
     suspend fun deleteBill(vararg bills: Bill)
     @Query("SELECT * FROM bill WHERE time >= :startTime AND time <= :endTime AND access = :access")

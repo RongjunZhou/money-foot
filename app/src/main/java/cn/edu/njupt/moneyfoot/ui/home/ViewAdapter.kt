@@ -6,12 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.TextView
 import cn.edu.njupt.moneyfoot.R
 import cn.edu.njupt.moneyfoot.entity.BillDO
+import cn.edu.njupt.moneyfoot.repo.BillRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class ViewAdapter(context: Context, bills: List<BillDO>) :
     ArrayAdapter<BillDO>(context, 0, bills) {
+
+    val susScope = CoroutineScope(Dispatchers.Default)
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var view = convertView
@@ -32,7 +39,14 @@ class ViewAdapter(context: Context, bills: List<BillDO>) :
         view?.findViewById<TextView>(R.id.textView_comment)?.text = bill?.comment
         view?.findViewById<TextView>(R.id.textView_access)?.text = bill?.access
 
+        view?.findViewById<Button>(R.id.deleteButton)?.setOnClickListener{
+            if (bill != null) {
+                susScope.launch { BillRepository.deleteBill(bill.id) }
+            }
+        }
+
         return view!!
+
 
     }
 }
