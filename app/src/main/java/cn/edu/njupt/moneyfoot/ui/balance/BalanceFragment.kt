@@ -26,7 +26,8 @@ class BalanceFragment : Fragment() {
 
         _binding = FragmentBalanceBinding.inflate(inflater, container, false)
         val root: View = binding.root
-               return root
+
+        return root
     }
 
     override fun onDestroyView() {

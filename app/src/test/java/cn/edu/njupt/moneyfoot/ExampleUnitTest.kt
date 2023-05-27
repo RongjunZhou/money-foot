@@ -1,8 +1,10 @@
 package cn.edu.njupt.moneyfoot
 
 import org.junit.Test
-
-import org.junit.Assert.*
+import java.time.LocalDateTime
+import java.time.ZoneOffset
+import java.util.Calendar
+import java.util.Date
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -12,6 +14,9 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+        val calendar: Calendar = Calendar.getInstance()
+        println(Date(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1, 0).time)
+        println(LocalDateTime.now().toInstant(ZoneOffset.UTC).toEpochMilli())
     }
 }
+

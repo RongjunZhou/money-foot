@@ -1,22 +1,520 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".ui.gallery.GalleryFragment">
 
-    <TextView
-        android:id="@+id/text_gallery"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="186dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/process_card"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="349dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+
+    <TextView
+        android:id="@+id/incomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="320dp"
+        android:textSize="24dp"
+        android:text="收入"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/outcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="320dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="32dp"
+        android:textSize="24dp"
+        android:text="支出"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/amount"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/card_1"
+        android:layout_width="180dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/count_card"
+        app:layout_constraintEnd_toStartOf="@+id/card_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view" />
+
+    <ImageView
+        android:id="@+id/card_2"
+        android:layout_width="180dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/count_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/card_1"
+        app:layout_constraintTop_toBottomOf="@id/view" />
+
+    <ImageView
+        android:id="@+id/card_3"
+        android:layout_width="180dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/count_card"
+        app:layout_constraintEnd_toStartOf="@+id/card_4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_1" />
+
+    <ImageView
+        android:id="@+id/card_4"
+        android:layout_width="180dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/count_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/card_3"
+        app:layout_constraintTop_toBottomOf="@id/card_2" />
+
+    <ImageView
+        android:id="@+id/card_5"
+        android:layout_width="180dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/count_card"
+        app:layout_constraintEnd_toStartOf="@+id/card_6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_3" />
+
+    <ImageView
+        android:id="@+id/card_6"
+        android:layout_width="180dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/count_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/card_5"
+        app:layout_constraintTop_toBottomOf="@id/card_4" />
+
+    <ImageView
+        android:id="@+id/card_7"
+        android:layout_width="180dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/count_card"
+        app:layout_constraintEnd_toStartOf="@+id/card_8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_5" />
+
+    <ImageView
+        android:id="@+id/card_8"
+        android:layout_width="180dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/count_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/card_7"
+        app:layout_constraintTop_toBottomOf="@id/card_6" />
+
+    <ImageView
+        android:id="@+id/card_9"
+        android:layout_width="180dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/count_card"
+        app:layout_constraintEnd_toStartOf="@+id/card_10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_7" />
+
+    <ImageView
+        android:id="@+id/card_10"
+        android:layout_width="180dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/count_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/card_9"
+        app:layout_constraintTop_toBottomOf="@id/card_8" />
+
+    <ImageView
+        android:id="@+id/card_11"
+        android:layout_width="180dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/count_card"
+        app:layout_constraintEnd_toStartOf="@+id/card_12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_9" />
+
+    <ImageView
+        android:id="@+id/card_12"
+        android:layout_width="180dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/count_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/card_11"
+        app:layout_constraintTop_toBottomOf="@id/card_10" />
+
+    <TextView
+        android:id="@+id/Text_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="工资收入"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@id/card_1"
+        app:layout_constraintTop_toTopOf="@+id/card_1" />
+
+    <TextView
+        android:id="@+id/Text_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="奖励奖金"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@id/card_2"
+        app:layout_constraintTop_toTopOf="@+id/card_2" />
+
+    <TextView
+        android:id="@+id/Text_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="理财收入"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@id/card_3"
+        app:layout_constraintTop_toTopOf="@+id/card_3" />
+
+    <TextView
+        android:id="@+id/Text_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="闲置交易"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@id/card_4"
+        app:layout_constraintTop_toTopOf="@+id/card_4" />
+
+    <TextView
+        android:id="@+id/Text_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="其他收入"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@id/card_5"
+        app:layout_constraintTop_toTopOf="@+id/card_5" />
+
+    <TextView
+        android:id="@+id/Text_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="学习办公"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@id/card_6"
+        app:layout_constraintTop_toTopOf="@+id/card_6" />
+
+    <TextView
+        android:id="@+id/Text_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="生活服务"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@id/card_7"
+        app:layout_constraintTop_toTopOf="@+id/card_7" />
+
+    <TextView
+        android:id="@+id/Text_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="餐饮零食"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@id/card_8"
+        app:layout_constraintTop_toTopOf="@+id/card_8" />
+
+    <TextView
+        android:id="@+id/Text_9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="交通出行"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@id/card_9"
+        app:layout_constraintTop_toTopOf="@+id/card_9" />
+
+    <TextView
+        android:id="@+id/Text_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="聚会活动"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@id/card_10"
+        app:layout_constraintTop_toTopOf="@+id/card_10" />
+
+    <TextView
+        android:id="@+id/Text_11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="家电购置"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@id/card_11"
+        app:layout_constraintTop_toTopOf="@+id/card_11" />
+
+    <TextView
+        android:id="@+id/Text_12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="其他支出"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@id/card_12"
+        app:layout_constraintTop_toTopOf="@+id/card_12" />
+
+    <TextView
+        android:id="@+id/amount_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:textSize="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/card_1"
+        app:layout_constraintEnd_toEndOf="@id/card_1"
+        app:layout_constraintStart_toStartOf="@id/card_1"
+        app:layout_constraintTop_toBottomOf="@+id/Text_1" />
+
+    <TextView
+        android:id="@+id/amount_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:textSize="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/card_2"
+        app:layout_constraintEnd_toEndOf="@id/card_2"
+        app:layout_constraintStart_toStartOf="@id/card_2"
+        app:layout_constraintTop_toBottomOf="@+id/Text_2" />
+
+    <TextView
+        android:id="@+id/amount_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:textSize="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/card_3"
+        app:layout_constraintEnd_toEndOf="@id/card_3"
+        app:layout_constraintStart_toStartOf="@id/card_3"
+        app:layout_constraintTop_toBottomOf="@+id/Text_3" />
+
+    <TextView
+        android:id="@+id/amount_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:textSize="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/card_4"
+        app:layout_constraintEnd_toEndOf="@id/card_4"
+        app:layout_constraintStart_toStartOf="@id/card_4"
+        app:layout_constraintTop_toBottomOf="@+id/Text_4" />
+
+    <TextView
+        android:id="@+id/amount_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:textSize="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/card_5"
+        app:layout_constraintEnd_toEndOf="@id/card_5"
+        app:layout_constraintStart_toStartOf="@id/card_5"
+        app:layout_constraintTop_toBottomOf="@+id/Text_5" />
+
+    <TextView
+        android:id="@+id/amount_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:textSize="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/card_6"
+        app:layout_constraintEnd_toEndOf="@id/card_6"
+        app:layout_constraintStart_toStartOf="@id/card_6"
+        app:layout_constraintTop_toBottomOf="@+id/Text_6" />
+
+    <TextView
+        android:id="@+id/amount_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:textSize="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/card_7"
+        app:layout_constraintEnd_toEndOf="@id/card_7"
+        app:layout_constraintStart_toStartOf="@id/card_7"
+        app:layout_constraintTop_toBottomOf="@+id/Text_7" />
+
+    <TextView
+        android:id="@+id/amount_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:textSize="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/card_8"
+        app:layout_constraintEnd_toEndOf="@id/card_8"
+        app:layout_constraintStart_toStartOf="@id/card_8"
+        app:layout_constraintTop_toBottomOf="@+id/Text_8" />
+
+    <TextView
+        android:id="@+id/amount_9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:textSize="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/card_9"
+        app:layout_constraintEnd_toEndOf="@id/card_9"
+        app:layout_constraintStart_toStartOf="@id/card_9"
+        app:layout_constraintTop_toBottomOf="@+id/Text_9" />
+
+    <TextView
+        android:id="@+id/amount_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:textSize="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/card_10"
+        app:layout_constraintEnd_toEndOf="@id/card_10"
+        app:layout_constraintStart_toStartOf="@id/card_10"
+        app:layout_constraintTop_toBottomOf="@+id/Text_10" />
+
+    <TextView
+        android:id="@+id/amount_11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:textSize="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/card_11"
+        app:layout_constraintEnd_toEndOf="@id/card_11"
+        app:layout_constraintStart_toStartOf="@id/card_11"
+        app:layout_constraintTop_toBottomOf="@+id/Text_11" />
+
+    <TextView
+        android:id="@+id/amount_12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:textSize="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/card_12"
+        app:layout_constraintEnd_toEndOf="@id/card_12"
+        app:layout_constraintStart_toStartOf="@id/card_12"
+        app:layout_constraintTop_toBottomOf="@+id/Text_12" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
