@@ -45,7 +45,7 @@ class GalleryFragment : Fragment() {
             }else{
                 binding.progressBar.progress = (income.toDouble()/(outcome.toDouble() + income.toDouble()) * 100).toInt()
                 if (income.toDouble() > outcome.toDouble()){
-                    binding.amount.setTextColor(Color.BLUE)
+                    binding.amount.setTextColor(Color.GREEN)
                 }else if(income.toDouble() < outcome.toDouble()){
                     binding.amount.setTextColor(Color.RED)
                 }else{
@@ -64,73 +64,73 @@ class GalleryFragment : Fragment() {
             binding.amount.text = amountText
         }
 
-        galleryViewModel.all_1.observe(viewLifecycleOwner){
+        galleryViewModel.all1.observe(viewLifecycleOwner){
             var amount = BigDecimal(0)
             it.stream().map { o -> BillDOAdapter.bill2BillDO(o) }.forEach{ o -> amount = amount.add(o.amount) }
             binding.amount1.text = "￥" + amount.toPlainString()
             binding.amount1.setTextColor(Color.GREEN)
         }
-        galleryViewModel.all_2.observe(viewLifecycleOwner){
+        galleryViewModel.all2.observe(viewLifecycleOwner){
             var amount = BigDecimal(0)
             it.stream().map { o -> BillDOAdapter.bill2BillDO(o) }.forEach{ o -> amount = amount.add(o.amount) }
             binding.amount2.text = "￥" + amount.toPlainString()
             binding.amount2.setTextColor(Color.GREEN)
         }
-        galleryViewModel.all_3.observe(viewLifecycleOwner){
+        galleryViewModel.all3.observe(viewLifecycleOwner){
             var amount = BigDecimal(0)
             it.stream().map { o -> BillDOAdapter.bill2BillDO(o) }.forEach{ o -> amount = amount.add(o.amount) }
             binding.amount3.text = "￥" + amount.toPlainString()
             binding.amount3.setTextColor(Color.GREEN)
         }
-        galleryViewModel.all_4.observe(viewLifecycleOwner){
+        galleryViewModel.all4.observe(viewLifecycleOwner){
             var amount = BigDecimal(0)
             it.stream().map { o -> BillDOAdapter.bill2BillDO(o) }.forEach{ o -> amount = amount.add(o.amount) }
             binding.amount4.text = "￥" + amount.toPlainString()
             binding.amount4.setTextColor(Color.GREEN)
         }
-        galleryViewModel.all_5.observe(viewLifecycleOwner){
+        galleryViewModel.all5.observe(viewLifecycleOwner){
             var amount = BigDecimal(0)
             it.stream().map { o -> BillDOAdapter.bill2BillDO(o) }.forEach{ o -> amount = amount.add(o.amount) }
             binding.amount5.text = "￥" + amount.toPlainString()
             binding.amount5.setTextColor(Color.GREEN)
         }
-        galleryViewModel.all_6.observe(viewLifecycleOwner){
+        galleryViewModel.all6.observe(viewLifecycleOwner){
             var amount = BigDecimal(0)
             it.stream().map { o -> BillDOAdapter.bill2BillDO(o) }.forEach{ o -> amount = amount.add(o.amount) }
             binding.amount6.text = "￥" + amount.toPlainString()
             binding.amount6.setTextColor(Color.RED)
         }
-        galleryViewModel.all_7.observe(viewLifecycleOwner){
+        galleryViewModel.all7.observe(viewLifecycleOwner){
             var amount = BigDecimal(0)
             it.stream().map { o -> BillDOAdapter.bill2BillDO(o) }.forEach{ o -> amount = amount.add(o.amount) }
             binding.amount7.text = "￥" + amount.toPlainString()
             binding.amount7.setTextColor(Color.RED)
         }
-        galleryViewModel.all_8.observe(viewLifecycleOwner){
+        galleryViewModel.all8.observe(viewLifecycleOwner){
             var amount = BigDecimal(0)
             it.stream().map { o -> BillDOAdapter.bill2BillDO(o) }.forEach{ o -> amount = amount.add(o.amount) }
             binding.amount8.text = "￥" + amount.toPlainString()
             binding.amount8.setTextColor(Color.RED)
         }
-        galleryViewModel.all_9.observe(viewLifecycleOwner){
+        galleryViewModel.all9.observe(viewLifecycleOwner){
             var amount = BigDecimal(0)
             it.stream().map { o -> BillDOAdapter.bill2BillDO(o) }.forEach{ o -> amount = amount.add(o.amount) }
             binding.amount9.text = "￥" + amount.toPlainString()
             binding.amount9.setTextColor(Color.RED)
         }
-        galleryViewModel.all_10.observe(viewLifecycleOwner){
+        galleryViewModel.all10.observe(viewLifecycleOwner){
             var amount = BigDecimal(0)
             it.stream().map { o -> BillDOAdapter.bill2BillDO(o) }.forEach{ o -> amount = amount.add(o.amount) }
             binding.amount10.text = "￥" + amount.toPlainString()
             binding.amount10.setTextColor(Color.RED)
         }
-        galleryViewModel.all_11.observe(viewLifecycleOwner){
+        galleryViewModel.all11.observe(viewLifecycleOwner){
             var amount = BigDecimal(0)
             it.stream().map { o -> BillDOAdapter.bill2BillDO(o) }.forEach{ o -> amount = amount.add(o.amount) }
             binding.amount11.text = "￥" + amount.toPlainString()
             binding.amount11.setTextColor(Color.RED)
         }
-        galleryViewModel.all_12.observe(viewLifecycleOwner){
+        galleryViewModel.all12.observe(viewLifecycleOwner){
             var amount = BigDecimal(0)
             it.stream().map { o -> BillDOAdapter.bill2BillDO(o) }.forEach{ o -> amount = amount.add(o.amount) }
             binding.amount12.text = "￥" + amount.toPlainString()
