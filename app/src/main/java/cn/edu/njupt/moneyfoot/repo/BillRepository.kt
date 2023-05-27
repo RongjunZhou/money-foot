@@ -26,14 +26,19 @@ object BillRepository {
     }
 
     fun getAll() : LiveData<List<Bill>> = instance!!.billDao().getAll()
-    fun insert(bill: Bill) = instance!!.billDao().insertBill(bill)
+    suspend fun insert(bill: Bill) {
+        instance!!.billDao().insertBill(bill)
+    }
     fun getBillsByDateAndAccess(startDate: Date, endStart: Date, access: String?): LiveData<List<Bill>>{
         if(access == null){
             return instance!!.billDao().getBillsByTime(startDate.time, endStart.time)
         }
         return instance!!.billDao().getBillsByTimeAndAccess(startDate.time, endStart.time, access)
     }
-
+    suspend fun deleteBill(id: Int){
+        val bill = Bill(id, "", "", "", 0, null)
+        instance!!.billDao().deleteBill(bill)
+    }
 
 
 }

@@ -4,16 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import cn.edu.njupt.moneyfoot.adapter.BillDOAdapter
 import cn.edu.njupt.moneyfoot.databinding.FragmentHomeBinding
-import kotlin.streams.toList
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
+    private lateinit var listViewBills: ListView
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -29,9 +29,11 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
+        listViewBills = binding.bills
+
         homeViewModel.bill.observe(viewLifecycleOwner) {
-            textView.text = it.stream().map { o ->BillDOAdapter.bill2BillDO(o) }.toList().toString()
+            val adapter = ViewAdapter(requireContext(), it.map { o -> BillDOAdapter.bill2BillDO(o) })
+            listViewBills.adapter = adapter
         }
         return root
     }
